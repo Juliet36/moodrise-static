@@ -1,0 +1,432 @@
+<?php
+/*
+Template Name: moodrise-static
+*/
+?>
+
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <style>
+  @font-face {
+    font-family: 'BeatriceDisplayDA-Semibold';
+    src: url('/wp-content/themes/aebeze/assets/fonts/BeatriceDisplayDA-Semibold.otf');
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  #body-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  #body-container::after {
+    content: '';
+    background-color: rgb(249,247,245);
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 1;
+  }
+  #devices {
+    display: flex;
+    width: 75%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    /* height: 85%; */
+    /* z-index: 5;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap; */
+    height: 73%;
+  }
+  #devices-container {
+    display: flex;
+    /* width: 80%; */
+    margin: auto;
+    /* height: 85%; */
+    z-index: 5;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* height: 75%; */
+  }
+  #title {
+    z-index: 5;
+    position: relative;
+    width: 90%;
+    margin: auto;
+    /* padding-top: 5%; */
+    height: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity .7s ease;
+  }
+  #title.active {
+    opacity: 1;
+  }
+  #subtitle {
+    opacity: 0;
+    transition: opacity 1s ease 2.75s;
+  }
+  #subtitle.active {
+    opacity: 1;
+  }
+  #logo-img {
+    width:290px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-weight: 500;
+    font-family: 'BeatriceDisplayDA-Semibold', 'Roboto',sans-serif;
+  }
+
+  /* img {
+    height: 100%;
+  } */
+  .download-links {
+    text-align: center;
+    margin-top: 2%;
+  }
+  .download-links .links-container {
+    transition: opacity .8s ease 1.9s, transform 1.4s ease 1.4s;
+    opacity: 0;
+    transform: translateY(-500%);
+    /* transition-delay: 1.2s; */
+  }
+
+  .download-links.active .links-container {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .device-img {
+    /* height:100%; */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .device-img img {
+    width: 100%;
+    transition: opacity .5s ease;
+    opacity: 0;
+    /* transform: translateY(110%); */
+  }
+  #cell1 img {
+    transition-delay: .25s;
+  }
+  #cell2 img {
+    transition-delay: .7s;
+  }
+  #cell3 img {
+    transition-delay: 1.15s;
+  }
+  .device-img.active img {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .download-icon {
+    width: 30px;
+    transition: transform .2s ease;
+  }
+  .download-link:nth-child(1) {
+    margin-right: 10px;
+  }
+  .download-link:nth-child(2) {
+    margin-left: 10px;
+  }
+  .grid-cell {
+    width: 30%;
+  }
+  .device-description {
+    /* text-align: center; */
+  }
+  .device-description p {
+    width: 90%;
+    margin: auto;
+    transition: opacity .8s ease 1.6s, transform 1.4s ease 1.2s;
+    opacity: 0;
+    transform: translateY(-110%);
+    line-height: 1.25rem;
+    /* transition-delay: 1.2s; */
+  }
+
+  .device-description.active p {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  #footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+  }
+  .social-link {
+    width: 15px;
+    transition: transform .1s ease;
+  }
+  a {
+    color: black;
+    font-size: .9rem;
+  }
+  a:hover .download-icon, a:hover .social-link {
+    /* transform: rotateZ(10deg); */
+    transform: scale(1.1);
+  }
+  #left-footer, #right-footer, #middle-footer {
+    width: calc(100%/3);
+  }
+  #middle-footer {
+    text-align: center;
+  }
+  #right-footer {
+    text-align: end;
+  }
+
+  @media screen and (max-width: 700px) {
+    .device-description p {
+      width: 96%;
+    }
+    #body-container {
+      height: auto;
+    }
+    #title {
+      padding-top: 15%;
+      margin-bottom: 10%;
+      align-items: center;
+    }
+    #subtitle {
+      opacity: 0;
+      transition: opacity 1s ease 1.75s;
+    }
+    #logo-img {
+      width: 75%;
+    }
+    #devices-container {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    #devices {
+      height: auto;
+    }
+    .grid-cell {
+      width: 90%;
+    }
+    #footer-container {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding-top: 5%;
+    }
+    #left-footer {
+      margin-bottom: 2.5%;
+    }
+    #middle-footer {
+      margin-bottom: 5%;
+    }
+    #right-footer {
+      margin-bottom: 5%;
+    }
+    #left-footer, #right-footer, #middle-footer {
+      width: 100%;
+      text-align: center;
+    }
+    #cell1 {
+      order: 1;
+    }
+    #cell4 {
+      order: 2;
+    }
+    #cell7 {
+      order: 3;
+    }
+    #cell2 {
+      order: 4;
+    }
+    #cell5 {
+      order: 5;
+    }
+    #cell8 {
+      order: 6;
+    }
+    #cell3 {
+      order: 7;
+    }
+    #cell6 {
+      order: 8;
+    }
+    #cell9 {
+      order: 9;
+    }
+    .device-description {
+      margin-bottom: 5%;
+    }
+    .download-links {
+      margin-bottom: 15%;
+    }
+
+
+
+    .download-links.active .links-container {
+      transform: translateY(-500%);
+      opacity: 0;
+    }
+    .download-links.first-group .links-container,
+    .download-links.third-group .links-container,
+    .download-links.second-group .links-container {
+      transition: opacity .8s ease .8s, transform 1.4s ease .4s;
+    }
+    .download-links.active-mobile .links-container {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    #cell1 img, #cell2 img, #cell3 img {
+      transition-delay: .2s;
+    }
+    .device-img.active img {
+      opacity: 0;
+    }
+    .device-img.active-mobile img {
+      opacity: 1;
+    }
+
+    .device-description p {
+      transition: opacity .8s ease .9s, transform 1.4s ease .4s;
+    }
+
+    .device-description.active p {
+      transform: translateY(-110%);
+      opacity: 0;
+    }
+    .device-description.active-mobile p {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+
+  }
+
+  </style>
+  <body>
+    <div id="body-container">
+      <div id="title">
+        <img id="logo-img" src="/wp-content/themes/aebeze/assets/images/moodrise-static/moodrise-transparentbg.png"/>
+        <p id="subtitle">By AeBeZe Labs</p>
+      </div>
+      <div id="devices">
+        <div id="devices-container">
+          <div class="grid-cell device-img first-group" id="cell1">
+            <img src="/wp-content/themes/aebeze/assets/images/moodrise-static/mobile-app-img.png"/>
+          </div>
+          <div class="grid-cell device-img second-group" id="cell2">
+            <img src="/wp-content/themes/aebeze/assets/images/moodrise-static/gh.png"/>
+          </div>
+          <div class="grid-cell device-img third-group" id="cell3">
+            <img src="/wp-content/themes/aebeze/assets/images/moodrise-static/apple-watch4.png"/>
+          </div>
+          <div class="grid-cell device-description first-group" id="cell4">
+            <p class="grid-cell device-description">World's first on-demand, <b>digital drug delivery system</b> for mobile devices</p>
+          </div>
+          <div class="grid-cell device-description second-group" id="cell5">
+            <p class="grid-cell device-description">World's first <b>Pillcast&trade; platform:</b> mood-enhancing audio segments, delivered in 90-second doses</p>
+          </div>
+          <div class="grid-cell device-description third-group" id="cell6">
+            <p class="grid-cell device-description">Powerful mood-tracking tools and original content, designed uniquely for the <b>Apple Watch</b></p>
+          </div>
+          <div class="grid-cell download-links first-group" id="cell7">
+            <div class="links-container">
+              <a class="download-link" href="https://itunes.apple.com/gb/app/aebeze/id1400832226?mt=8"><img class="download-icon" src="/wp-content/themes/aebeze/assets/images/moodrise-static/apple-logo.png"/></a>
+              <a class="download-link" href="https://play.google.com/store/apps/details?id=com.aebeze"><img class="download-icon" src="/wp-content/themes/aebeze/assets/images/moodrise-static/google-play-logo.png"/></a>
+            </div>
+          </div>
+          <div class="grid-cell download-links second-group" id="cell8">
+            <div class="links-container">
+              <a class="download-link" href="https://skills-store.amazon.com/deeplink/dp/B07KCYFQ2D?deviceType=app&share&refSuffix=ss_copy"><img class="download-icon" src="/wp-content/themes/aebeze/assets/images/moodrise-static/alexa-logo.png"/></a>
+              <a class="download-link" href="https://assistant.google.com/services/a/uid/00000090949b1f75?hl=en&source=web"><img class="download-icon" src="/wp-content/themes/aebeze/assets/images/moodrise-static/gh-logo.png"/></a>
+            </div>
+          </div>
+          <div class="grid-cell download-links third-group" id="cell9">
+          </div>
+        </div>
+      </div>
+      <div id="footer-container">
+        <div id="left-footer">
+          <b>AeBeZe</b>
+          &nbsp;
+          &nbsp;
+          Pioneering Digital Nutrition
+        </div>
+        <div id="middle-footer">
+          <a href="https://www.aebeze.com">Visit our Website</a>
+        </div>
+        <div id="right-footer">
+          <a href="https://www.facebook.com/moodriseapp"><img class="social-link" src="/wp-content/themes/aebeze/assets/images/moodrise-static/facebook-icon.png"/></a>
+          <a href="https://www.instagram.com/moodriseapp/"><img class="social-link" src="/wp-content/themes/aebeze/assets/images/moodrise-static/instagram-icon.png"/></a>
+          <a href="https://twitter.com/moodriseapp"><img class="social-link" src="/wp-content/themes/aebeze/assets/images/moodrise-static/twitter-icon2.png"/></a>
+          <a href="mailto:da@aebeze.com"><img class="social-link" src="/wp-content/themes/aebeze/assets/images/moodrise-static/email-icon.png"/></a>
+          <!-- <img src="./"/>website -->
+          <!-- <a href="cell:"><img class="social-link" src="./phone-icon.png"/></a> -->
+        </div>
+      </div>
+  </body>
+  <script>
+  $(document).ready(function() {
+      $('#title').addClass('active');
+      $('#subtitle').addClass('active');
+      $('.device-img').each(function () {
+        $(this).addClass('active');
+      });
+      $('.device-description').each(function () {
+        $(this).addClass('active');
+      });
+      $('.download-links').each(function () {
+        $(this).addClass('active');
+      });
+      $(window).scroll(function() {
+
+      // selectors
+      var $window = $(window),
+          $body = $('body'),
+          $panel = $('.device-img');
+          if ($window.scrollTop() < 220) {
+            $('.first-group').each(function() {
+              $(this).addClass('active-mobile')
+            });
+          }
+            // Change 33% earlier than scroll position so colour is there when you arrive.
+            var scroll = $window.scrollTop() + ($window.height() / 5);
+            $panel.each(function () {
+              var $this = $(this);
+              if ($this.position().top <= scroll && $this.position().top + $this.height() > scroll) {
+                $this.addClass('active-mobile');
+                if ($this.hasClass('second-group')) {
+                  $('.second-group').each(function() {
+                    $(this).addClass('active-mobile')
+                  })
+                } else if ($this.hasClass('third-group')) {
+                  $('.third-group').each(function() {
+                    $(this).addClass('active-mobile')
+                  })
+                } else {
+                  $('.first-group').each(function() {
+                    $(this).addClass('active-mobile')
+                  })
+                }
+              }
+            });
+
+      }).scroll();
+    });
+  </script>
