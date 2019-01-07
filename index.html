@@ -2,6 +2,24 @@
 <html>
   <head>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <link rel="apple-touch-icon" sizes="57x57" href="./moodrise-images/favicon.ico/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="./moodrise-images/favicon.ico/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="./moodrise-images/favicon.ico/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="./moodrise-images/favicon.ico/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="./moodrise-images/favicon.ico/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="./moodrise-images/favicon.ico/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="./moodrise-images/favicon.ico/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="./moodrise-images/favicon.ico/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="./moodrise-images/favicon.ico/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="./moodrise-images/favicon.ico/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="./moodrise-images/favicon.ico/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="./moodrise-images/favicon.ico/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="./moodrise-images/favicon.ico/favicon-16x16.png">
+      <link rel="manifest" href="./moodrise-images/favicon.ico/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="./moodrise-images/favicon.ico/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
+      <title>Moodrise App</title>
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
@@ -31,160 +49,177 @@
       margin: auto;
       justify-content: center;
       align-items: center;
-      /* height: 85%; */
-      /* z-index: 5;
-      position: relative;
-      justify-content: space-between;
-      flex-wrap: wrap; */
       height: 73%;
     }
     #devices-container {
       display: flex;
-      /* width: 80%; */
       margin: auto;
-      /* height: 85%; */
       z-index: 5;
       position: relative;
       justify-content: space-between;
       flex-wrap: wrap;
-      /* height: 75%; */
     }
     #title {
-      z-index: 5;
-      position: relative;
-      width: 90%;
-      margin: auto;
-      /* padding-top: 5%; */
-      height: 17%;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
-      opacity: 0;
-      transition: opacity .7s ease;
-    }
-    #title.active {
-      opacity: 1;
-    }
-    #subtitle {
-      opacity: 0;
-      transition: opacity 1s ease 2.75s;
-    }
-    #subtitle.active {
-      opacity: 1;
-    }
-    #logo-img {
-      width:290px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-weight: 500;
-      font-family: 'BeatriceDisplayDA-Semibold', 'Roboto',sans-serif;
-    }
+    z-index: 5;
+    position: relative;
+    width: 90%;
+    margin: auto;
+    /* padding-top: 5%; */
+    height: 17%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity .7s ease;
+  }
+  #title.active {
+    opacity: 1;
+  }
+  #subtitle {
+    font-size: .8rem;
+    /* transition: opacity 1s ease 2.75s; */
+  }
+  /* #subtitle.active {
+    opacity: 1;
+  } */
+  #logo-img {
+    width:290px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-weight: 500;
+    font-family: 'BeatriceDisplayDA-Semibold', 'Roboto',sans-serif;
+  }
 
-    /* img {
-      height: 100%;
-    } */
-    .download-links {
-      text-align: center;
-      margin-top: 2%;
-    }
-    .download-links .links-container {
-      transition: opacity .8s ease 1.9s, transform 1.4s ease 1.4s;
-      opacity: 0;
-      transform: translateY(-500%);
-      /* transition-delay: 1.2s; */
-    }
+  /* img {
+    height: 100%;
+  } */
+  .download-links {
+    text-align: center;
+    margin-top: 2%;
+  }
+  .download-links .links-container {
+    /* transition: opacity .8s ease 1.9s, transform 1.4s ease 1.4s; */
+    transition: opacity .8s ease .5s, transform 1.4s;
+    opacity: 0;
+    transform: translateY(-500%);
+    /* transition-delay: 1.2s; */
+  }
 
-    .download-links.active .links-container {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  .download-links.active .links-container {
+    transform: translateY(0);
+    opacity: 1;
+  }
 
-    .device-img {
-      /* height:100%; */
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-    .device-img img {
-      width: 100%;
-      transition: opacity .5s ease;
-      opacity: 0;
-      /* transform: translateY(110%); */
-    }
-    #cell1 img {
-      transition-delay: .25s;
-    }
-    #cell2 img {
-      transition-delay: .7s;
-    }
-    #cell3 img {
-      transition-delay: 1.15s;
-    }
-    .device-img.active img {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .download-icon {
-      width: 30px;
-      transition: transform .2s ease;
-    }
-    .download-link:nth-child(1) {
-      margin-right: 10px;
-    }
-    .download-link:nth-child(2) {
-      margin-left: 10px;
-    }
-    .grid-cell {
-      width: 30%;
-    }
-    .device-description {
-      /* text-align: center; */
-    }
-    .device-description p {
-      width: 90%;
-      margin: auto;
-      transition: opacity .8s ease 1.6s, transform 1.4s ease 1.2s;
-      opacity: 0;
-      transform: translateY(-110%);
-      line-height: 1.25rem;
-      /* transition-delay: 1.2s; */
-    }
+  .device-img {
+    /* height:100%; */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .device-img img {
+    width: 100%;
+    transition: opacity .4s ease;
+    opacity: 0;
+    /* transform: translateY(110%); */
+  }
+  /*
+  image opacity: .5s
 
-    .device-description.active p {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    #footer-container {
-      width: 90%;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 10%;
-    }
-    .social-link {
-      width: 15px;
-      transition: transform .1s ease;
-    }
-    a {
-      color: black;
-      font-size: .9rem;
-    }
-    a:hover .download-icon, a:hover .social-link {
-      /* transform: rotateZ(10deg); */
-      transform: scale(1.1);
-    }
-    #left-footer, #right-footer, #middle-footer {
-      width: calc(100%/3);
-    }
-    #middle-footer {
-      text-align: center;
-    }
-    #right-footer {
-      text-align: end;
-    }
+  */
+  #cell1 img {
+    transition-delay: .25s;
+  }
+  #cell2 img {
+    transition-delay: 3s;
+  }
+  #cell3 img {
+    transition-delay: 6.25s;
+  }
+  #cell4 p {
+    transition-delay: 1s, .60s;
+  }
+  #cell5 p {
+    transition-delay: 4.20s, 3.80s;
+  }
+  #cell6 p {
+    transition-delay: 7.0s, 6.60s;
+  }
+  #cell7 .links-container {
+    transition-delay: 1.45s, .95s;
+  }
+  #cell8 .links-container {
+    transition-delay: 4.75s, 4.25s;
+  }
+  #cell9 .links-container {
+    transition-delay: 7.55s, 7.05s;
+  }
+  .device-img.active img {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .download-icon {
+    width: 30px;
+    transition: transform .2s ease;
+  }
+  .download-link:nth-child(1) {
+    margin-right: 10px;
+  }
+  .download-link:nth-child(2) {
+    margin-left: 10px;
+  }
+  .grid-cell {
+    width: 30%;
+  }
+  .device-description {
+    /* text-align: center; */
+  }
+  .device-description p {
+    width: 90%;
+    margin: auto;
+    /* transition: opacity .8s ease 1.6s, transform 1.4s ease 1.2s; */
+    transition: opacity .8s ease .4s, transform 1.4s ease;
+    opacity: 0;
+    transform: translateY(-110%);
+    line-height: 1.25rem;
+    padding-top:.5rem;
+    /* transition-delay: 1.2s; */
+  }
+
+  .device-description.active p {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  #footer-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+  }
+  .social-link {
+    width: 15px;
+    transition: transform .1s ease;
+  }
+  a {
+    color: black;
+    font-size: .9rem;
+  }
+  a:hover .download-icon, a:hover .social-link {
+    /* transform: rotateZ(10deg); */
+    transform: scale(1.1);
+  }
+  #left-footer, #right-footer, #middle-footer {
+    width: calc(100%/3);
+  }
+  #middle-footer {
+    text-align: center;
+  }
+  #right-footer {
+    text-align: end;
+  }
 
     @media screen and (max-width: 700px) {
       .device-description p {
