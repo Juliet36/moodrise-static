@@ -179,6 +179,16 @@
       justify-content: space-between;
       align-items: center;
     }
+    .footer-third {
+      width: calc(100%/3);
+      display: flex;
+    }
+    .footer-third:nth-child(2) {
+      justify-content: center;
+    }
+    .footer-third:nth-child(3) {
+      justify-content: flex-end;
+    }
     .social-link {
       width: 15px;
       transition: transform .1s ease;
@@ -365,8 +375,9 @@
         </div>
         <div id="footer">
           <div id="footer-container">
-            <p><b>AeBeZe Labs</b> Pioneering Digital Nutrition&trade;</p>
-            <p><a href="https://www.aebeze.com">Visit our website</a></p>
+            <div class="footer-third"><p><b>AeBeZe Labs</b> Pioneering Digital Nutrition&trade;</p></div>
+            <div class="footer-third"><p><a href="https://www.aebeze.com">Learn More</a></p></div>
+            <div class="footer-third"><p>&copy; Copyright 2019</p></div>
           </div>
         </div>
       </div>
