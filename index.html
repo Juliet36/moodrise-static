@@ -2,429 +2,90 @@
 <html>
   <head>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <link rel="apple-touch-icon" sizes="57x57" href="./moodrise-images/favicon.ico/apple-icon-57x57.png">
-      <link rel="apple-touch-icon" sizes="60x60" href="./moodrise-images/favicon.ico/apple-icon-60x60.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="./moodrise-images/favicon.ico/apple-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="76x76" href="./moodrise-images/favicon.ico/apple-icon-76x76.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="./moodrise-images/favicon.ico/apple-icon-114x114.png">
-      <link rel="apple-touch-icon" sizes="120x120" href="./moodrise-images/favicon.ico/apple-icon-120x120.png">
-      <link rel="apple-touch-icon" sizes="144x144" href="./moodrise-images/favicon.ico/apple-icon-144x144.png">
-      <link rel="apple-touch-icon" sizes="152x152" href="./moodrise-images/favicon.ico/apple-icon-152x152.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="./moodrise-images/favicon.ico/apple-icon-180x180.png">
-      <link rel="icon" type="image/png" sizes="192x192"  href="./moodrise-images/favicon.ico/android-icon-192x192.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="./moodrise-images/favicon.ico/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="96x96" href="./moodrise-images/favicon.ico/favicon-96x96.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="./moodrise-images/favicon.ico/favicon-16x16.png">
-      <link rel="manifest" href="./moodrise-images/favicon.ico/manifest.json">
+      <link rel="apple-touch-icon" sizes="57x57" href="./assets/images/favicon.ico/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="./assets/images/favicon.ico/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="./assets/images/favicon.ico/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="./assets/images/favicon.ico/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="./assets/images/favicon.ico/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="./assets/images/favicon.ico/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="./assets/images/favicon.ico/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/favicon.ico/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon.ico/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="./assets/images/favicon.ico/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.ico/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="./assets/images/favicon.ico/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon.ico/favicon-16x16.png">
+      <link rel="manifest" href="./assets/images/favicon.ico/manifest.json">
       <meta name="msapplication-TileColor" content="#ffffff">
-      <meta name="msapplication-TileImage" content="./moodrise-images/favicon.ico/ms-icon-144x144.png">
+      <meta name="msapplication-TileImage" content="./assets/images/favicon.ico/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
       <title>Moodrise App</title>
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="./assets/styles/moodrise-static-styles.css">
     </head>
-    <style>
-    * {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
-    #body-container {
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-    }
-    #body-container::after {
-      content: '';
-      background-color: rgb(249,247,245);
-      height: 50%;
-      width: 100%;
-      position: absolute;
-      top: 0; left: 0;
-      z-index: 1;
-    }
-    #devices {
-      display: flex;
-      width: 75%;
-      margin: auto;
-      justify-content: center;
-      align-items: center;
-      height: 73%;
-    }
-    #devices-container {
-      display: flex;
-      margin: auto;
-      z-index: 5;
-      position: relative;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    #title {
-      z-index: 5;
-      position: relative;
-      width: 90%;
-      margin: auto;
-      height: 17%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
-      flex-direction: column;
-      transition: opacity .7s ease;
-    }
-    #subtitle {
-      font-size: .8rem;
-    }
-    #logo-img {
-      width:290px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-weight: 500;
-      font-family: 'BeatriceDisplayDA-Semibold', 'Roboto',sans-serif;
-    }
-
-    .download-links {
-      text-align: center;
-      margin-top: 2%;
-    }
-    .download-links .links-container {
-      transition: opacity .5s ease, transform 1s;
-      opacity: 0;
-      transform: translateY(-500%);
-    }
-
-    .download-links.active .links-container {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .device-img {
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-    .device-img img {
-      width: 100%;
-      transition: opacity .3s ease;
-      opacity: 0;
-    }
-    #cell1 img {
-      transition-delay: .25s;
-    }
-    #cell2 img {
-      transition-delay: .75s;
-    }
-    #cell3 img {
-      transition-delay: 1.25s;
-    }
-    #cell4 p {
-      transition-delay: .45s, .05s;
-    }
-    #cell5 p {
-      transition-delay: .95s, .55s;
-    }
-    #cell6 p {
-      transition-delay: 1.45s, 1.05s;
-    }
-    #cell7 .links-container {
-      transition-delay: .55s, .15s;
-    }
-    #cell8 .links-container {
-      transition-delay: 1.05s, .65s;
-    }
-    #cell9 .links-container {
-      transition-delay: 1.55s, 1.15s;
-    }
-    .device-img.active img {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    .download-icon {
-      width: 30px;
-      transition: transform .2s ease;
-    }
-    .download-link:nth-child(1) {
-      margin-right: 10px;
-    }
-    .download-link:nth-child(2) {
-      margin-left: 10px;
-    }
-    .grid-cell {
-      width: 30%;
-    }
-    .device-description p {
-      width: 90%;
-      margin: auto;
-      transition: opacity .6s ease, transform 1s ease;
-      opacity: 0;
-      transform: translateY(-110%);
-      line-height: 1.25rem;
-      padding-top: .5rem;
-    }
-
-    .device-description.active p {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    #footer {
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    }
-    #footer-container {
-      width: 90%;
-      padding-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: .9rem;
-    }
-    .footer-third {
-      width: calc(100%/3);
-      display: flex;
-    }
-    .footer-third:nth-child(2) {
-      justify-content: center;
-    }
-    .footer-third:nth-child(3) {
-      justify-content: flex-end;
-    }
-    .social-link {
-      width: 15px;
-      transition: transform .1s ease;
-    }
-    a {
-      color: black;
-      font-size: .9rem;
-    }
-    a:hover .download-icon, a:hover .social-link {
-      /* transform: rotateZ(10deg); */
-      transform: scale(1.1);
-    }
-    #left-footer, #right-footer, #middle-footer {
-      width: calc(100%/3);
-    }
-    #middle-footer {
-      text-align: center;
-    }
-    #right-footer {
-      text-align: end;
-    }
-
-    @media screen and (max-width: 700px) {
-      .device-description p {
-        width: 96%;
-      }
-      #body-container {
-        height: auto;
-      }
-      #title {
-        padding-top: 15%;
-        margin-bottom: 10%;
-        align-items: center;
-      }
-      #logo-img {
-        width: 75%;
-      }
-      #devices-container {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-      }
-      #devices {
-        height: auto;
-      }
-      .grid-cell {
-        width: 90%;
-      }
-      #footer-container {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding-top: 5%;
-      }
-      .footer-third {
-        width: 100%;
-        justify-content: center;
-        padding-bottom: 15px;
-      }
-      .footer-third:nth-child(3) {
-        justify-content: center;
-      }
-      #cell1 {
-        order: 1;
-      }
-      #cell4 {
-        order: 2;
-      }
-      #cell7 {
-        order: 3;
-      }
-      #cell2 {
-        order: 4;
-      }
-      #cell5 {
-        order: 5;
-      }
-      #cell8 {
-        order: 6;
-      }
-      #cell3 {
-        order: 7;
-      }
-      #cell6 {
-        order: 8;
-      }
-      #cell9 {
-        order: 9;
-      }
-      .device-description {
-        margin-bottom: 5%;
-      }
-      .download-links {
-        margin-bottom: 15%;
-      }
-
-      .download-links.active .links-container {
-        transform: translateY(-500%);
-        opacity: 0;
-      }
-      #cell7 .links-container, #cell8 .links-container, #cell9 .links-container {
-        transition: opacity .5s ease .4s, transform .8s ease .1s;
-      }
-      .download-links.active-mobile .links-container {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      #cell1 img, #cell2 img, #cell3 img {
-        transition-delay: .2s;
-      }
-      .device-img.active img {
-        opacity: 0;
-      }
-      .device-img.active-mobile img {
-        opacity: 1;
-      }
-
-      #cell4 p, #cell5 p, #cell6 p {
-        transition: opacity .4s ease .3s, transform .7s ease;
-      }
-
-      .device-description.active p {
-        transform: translateY(-110%);
-        opacity: 0;
-      }
-      .device-description.active-mobile p {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-
-    }
-
-    </style>
     <body>
-      <div id="body-container">
-        <div id="title">
-          <img id="logo-img" src="./moodrise-images/moodrise-transparentbg.png"/>
-          <p id="subtitle">By AeBeZe Labs</p>
+      <div class="body">
+        <div class="body__title-container">
+          <img class="title-container__logo-img" src="./assets/images/moodrise-transparentbg.png"/>
+          <p class="title-container__subtitle">By AeBeZe Labs</p>
         </div>
-        <div id="devices">
-          <div id="devices-container">
-            <div class="grid-cell device-img first-group" id="cell1">
-              <img src="./moodrise-images/mobile-app-sample.png"/>
+        <div class="body__devices-container">
+          <div class="devices-container__devices">
+            <div class="devices__grid-cell devices__grid-cell--device-img devices__grid-cell--first-group" id="cell1">
+              <img class="grid-cell__img" src="./assets/images/mobile-app-sample.png"/>
             </div>
-            <div class="grid-cell device-img second-group" id="cell2">
-              <img src="./moodrise-images/gh-sample.png"/>
+            <div class="devices__grid-cell devices__grid-cell--device-img devices__grid-cell--second-group" id="cell2">
+              <img class="grid-cell__img" src="./assets/images/gh-sample.png"/>
             </div>
-            <div class="grid-cell device-img third-group" id="cell3">
-              <img src="./moodrise-images/apple-watch4.png"/>
+            <div class="devices__grid-cell devices__grid-cell--device-img devices__grid-cell--third-group" id="cell3">
+              <img class="grid-cell__img" src="./assets/images/apple-watch4.png"/>
             </div>
-            <div class="grid-cell device-description first-group" id="cell4">
-              <p class="grid-cell device-description">World's first on-demand, <b>digital drug delivery system</b> for mobile devices</p>
+            <div class="devices__grid-cell devices__grid-cell--device-description devices__grid-cell--first-group" id="cell4">
+              <p class="grid-cell__description">World's first on-demand, <b>digital drug delivery system</b> for mobile devices</p>
             </div>
-            <div class="grid-cell device-description second-group" id="cell5">
-              <p class="grid-cell device-description">World's first <b>Pillcast&trade; platform:</b> mood-enhancing audio segments, delivered in 90-second doses</p>
+            <div class="devices__grid-cell devices__grid-cell--device-description devices__grid-cell--second-group" id="cell5">
+              <p class="grid-cell__description">World's first <b>Pillcast&trade; platform:</b> mood-enhancing audio segments, delivered in 90-second doses</p>
             </div>
-            <div class="grid-cell device-description third-group" id="cell6">
-              <p class="grid-cell device-description">Powerful mood-tracking tools and original content, designed uniquely for the <b>Apple Watch</b></p>
+            <div class="devices__grid-cell devices__grid-cell--device-description devices__grid-cell--third-group" id="cell6">
+              <p class="grid-cell__description">Powerful mood-tracking tools and original content, designed uniquely for the <b>Apple Watch</b></p>
             </div>
-            <div class="grid-cell download-links first-group" id="cell7">
-              <div class="links-container">
-                <a class="download-link" href="https://itunes.apple.com/gb/app/aebeze/id1400832226?mt=8"><img class="download-icon" src="./moodrise-images/apple-logo.png"/></a>
-                <a class="download-link" href="https://play.google.com/store/apps/details?id=com.aebeze"><img class="download-icon" src="./moodrise-images/google-play-logo.png"/></a>
+            <div class="devices__grid-cell devices__grid-cell--download-links devices__grid-cell--first-group" id="cell7">
+              <div class="grid-cell__links-container">
+                <a class="links-container__download-link" href="https://itunes.apple.com/gb/app/aebeze/id1400832226?mt=8"><img class="download-link__download-icon" src="./assets/images/apple-logo.png"/></a>
+                <a class="links-container__download-link" href="https://play.google.com/store/apps/details?id=com.aebeze"><img class="download-link__download-icon" src="./assets/images/google-play-logo.png"/></a>
               </div>
             </div>
-            <div class="grid-cell download-links second-group" id="cell8">
-              <div class="links-container">
-                <a class="download-link" href="https://skills-store.amazon.com/deeplink/dp/B07N69488G?deviceType=app&share&refSuffix=ss_copy"><img class="download-icon" src="./moodrise-images/alexa-logo.png"/></a>
-                <a class="download-link" href="https://assistant.google.com/services/a/uid/00000090949b1f75?hl=en&source=web"><img class="download-icon" src="./moodrise-images/gh-logo.png"/></a>
+            <div class="devices__grid-cell devices__grid-cell--download-links devices__grid-cell--second-group" id="cell8">
+              <div class="grid-cell__links-container">
+                <a class="links-container__download-link" href="https://skills-store.amazon.com/deeplink/dp/B07N69488G?deviceType=app&share&refSuffix=ss_copy"><img class="download-link__download-icon" src="./assets/images/alexa-logo.png"/></a>
+                <a class="links-container__download-link" href="https://assistant.google.com/services/a/uid/00000090949b1f75?hl=en&source=web"><img class="download-link__download-icon" src="./assets/images/gh-logo.png"/></a>
               </div>
             </div>
-            <div class="grid-cell download-links third-group" id="cell9">
-              <div class="links-container">
-                <a class="download-link" href="https://itunes.apple.com/gb/app/aebeze/id1400832226?mt=8"><img class="download-icon" src="./moodrise-images/apple-logo.png"/></a>
+            <div class="devices__grid-cell devices__grid-cell--download-links devices__grid-cell--third-group" id="cell9">
+              <div class="grid-cell__links-container">
+                <a class="links-container__download-link" href="https://itunes.apple.com/gb/app/aebeze/id1400832226?mt=8"><img class="download-link__download-icon" src="./assets/images/apple-logo.png"/></a>
               </div>
             </div>
           </div>
         </div>
-        <div id="footer">
-          <div id="footer-container">
-            <div class="footer-third"><p><b>AeBeZe Labs</b> Better Digital Nutrition&trade;</p></div>
-            <div class="footer-third"><p><a href="https://www.aebeze.com">Learn More</a></p></div>
-            <div class="footer-third"><p>&copy; Copyright 2019</p></div>
+        <div class="body__footer-container">
+          <div class="footer-container__footer">
+            <div class="footer__footer-third"><p><b>AeBeZe Labs</b> Better Digital Nutrition&trade;</p></div>
+            <div class="footer__footer-third"><p><a class="footer-third__link" href="https://www.aebeze.com">Learn More</a></p></div>
+            <div class="footer__footer-third">
+              <a class="footer-third__social-link" href="instagram.com/moodriseapp"><img class="social-link__icon" src="./assets/images/social-instagram-icon.png"/></a>
+              <a class="footer-third__social-link" href="mailto:da@aebeze.com"><img class="social-link__icon" src="./assets/images/social-email-icon.png"/></a>
+              <a class="footer-third__social-link" href="twitter.com/moodriseapp"><img class="social-link__icon" src="./assets/images/social-twitter-icon.png"/></a>
+              <a class="footer-third__social-link" href="facebook.com/moodriseapp"><img class="social-link__icon" src="./assets/images/social-facebook-icon.png"/></a>
+              <p class="footer-third__copy footer-third__copy--small footer-third__copy--desktop-only">&copy; Copyright 2019</p>
+            </div>
+            <div class="footer__footer-third--hidden">
+              <p class="footer-third__copy footer-third__copy--small">&copy; Copyright 2019</p>
+            </div>
           </div>
         </div>
       </div>
     </body>
-    <script>
-    $(document).ready(function() {
-        $('#title').addClass('active');
-        $('#subtitle').addClass('active');
-        $('.device-img').each(function () {
-          $(this).addClass('active');
-        });
-        $('.device-description').each(function () {
-          $(this).addClass('active');
-        });
-        $('.download-links').each(function () {
-          $(this).addClass('active');
-        });
-        $(window).scroll(function() {
-
-        // selectors
-        var $window = $(window),
-            $body = $('body'),
-            $panel = $('.device-img');
-            if ($window.scrollTop() < 220) {
-              $('.first-group').each(function() {
-                $(this).addClass('active-mobile')
-              });
-            }
-              // Change 33% earlier than scroll position so colour is there when you arrive.
-              var scroll = $window.scrollTop() + ($window.height() / 3);
-              $panel.each(function () {
-                var $this = $(this);
-                if ($this.position().top <= scroll && $this.position().top + $this.height() > scroll) {
-                  $this.addClass('active-mobile');
-                  if ($this.hasClass('second-group')) {
-                    $('.second-group').each(function() {
-                      $(this).addClass('active-mobile')
-                    })
-                  } else if ($this.hasClass('third-group')) {
-                    $('.third-group').each(function() {
-                      $(this).addClass('active-mobile')
-                    })
-                  } else {
-                    $('.first-group').each(function() {
-                      $(this).addClass('active-mobile')
-                    })
-                  }
-                }
-              });
-
-        }).scroll();
-      });
-    </script>
+    <script src="./assets/scripts/moodrise-static-scripts.js"></script>
 </html>
