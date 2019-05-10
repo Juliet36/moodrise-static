@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moodrise Air Force Video</title>
+    <style>
+    body {
+      background-color: white;
+    }
+    body::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 50%;
+      background-color: #F4F2F0;
+    }
+    #video-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    video {
+      width: 85%;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="video-container">
+      <video controls="true">
+        <source src="https://firebasestorage.googleapis.com/v0/b/aebeze-api.appspot.com/o/web%2Fmain-site%2Fmoodrise-airforce-042319.mp4?alt=media&token=73d1d4c9-6bd2-409c-965e-b77d340bdea0" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </body>
+</html>
